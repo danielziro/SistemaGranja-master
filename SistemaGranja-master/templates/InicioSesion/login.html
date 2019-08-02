@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  {% if not user.is_authenticated %}
+  <form method="post" action="">
+    {% csrf_token %}
+    <table>
+      {{ form.management_form }}
+      {% for field in form %}
+        {% if field.name == "username" %}
+        <tr>
+          <td>{{field.label_tag}}</td>
+          <td><input type="text" name="username" value=""></td>
+          <td>{{field.errors}}</td>
+        </tr>
+        {% endif %}
+        {% if field.name == "password" %}
+          <tr>
+            <td>{{field.label_tag}}</td>
+            <td><input type="text" name="password" value=""></td>
+            <td>{{field.errors}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      
+      {% endif %}
+        <tr>
+          <td colspan="2" align='center'>
+            <button type="submit">Login</button>
+          </td>
+        </tr>
+    </table>
+  </form>
+</body>
+</html>

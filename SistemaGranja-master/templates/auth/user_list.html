@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Usuarios</h1>
+<p>
+  <a href="{% url "usuarios:nuevo" %}">Agregar usuario</a>
+</p>
+
+<ul>
+  {% for usuario in object_list %}
+      <li>
+          <p>{{ usuario.username }}</p>
+          <p>
+              <a href="{% url "usuarios:buscar" usuario.id %}">Ver</a> |
+              <a href="{% url "usuarios:editar" usuario.id %}">Editar</a> |
+          </p>
+      </li>
+  {% endfor %}
+</ul>
+</body>
+</html>
+{% endblock %}

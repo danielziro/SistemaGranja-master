@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{%block content%}
+  <h1>Hello!</h1>
+  {% if user.is_authenticated %}
+  <a href="{% url "usuarios:listar" %}">Usuarios</a>
+  <a href="{% url "inicio:salir" %}">Salir</a>
+  {% endif %}
+{% endblock %}

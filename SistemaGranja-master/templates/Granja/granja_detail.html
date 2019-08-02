@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>{{ granja.nombre }}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+  </head>
+  <body>
+    <h1>{{ granja.nombre }}</h1>
+    <img src="{{ granja.mapa.url }}" alt="">
+  </body>
+</html>
